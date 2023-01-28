@@ -1,0 +1,19 @@
+# one letter one time
+from itertools import permutations
+lst = list(permutations('kaliy', 5))
+cnt = 0
+for i in lst:
+    strg = ''.join(i)
+    if strg[0] != 'y' and strg.count('ia') == 0:
+        cnt += 1
+print(cnt)
+
+# one letter many times
+from itertools import product
+lst = list(product('moicey', repeat=4))
+cnt = 0
+for i in lst:
+    strg = ''.join(i)
+    if strg[0] != 'y' and strg.count('o')+strg.count('i')+strg.count('e')  >= 1:
+        cnt += 1
+print(cnt)
