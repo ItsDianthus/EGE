@@ -1,0 +1,11 @@
+lst = []
+for a1 in range(-100, 100):
+    for a2 in range(a1, 100):
+        ok = 1
+        for x in range(0, 100):
+            x = x+0.5
+            if (((5<= x <= 100) <= (15 <= x <= 25)) or ((not(a1 <= x <= a2)) <= (not(35 <= x <= 50)))) == 0:
+                ok = 0
+        if ok:
+            lst.append(a2-a1)
+print(min(lst))
