@@ -1,4 +1,4 @@
-#ege19-21  zad 66
+#ege19-21  zad 66  с двумя камнями
 def F(x, y, p, win):
     global pepe
     if x + y >= 81: return p%2 == win%2
@@ -12,4 +12,22 @@ def F(x, y, p, win):
 
 for s in range(1, 74):
     if F(7, s, 0, 4):
+        print(s)
+
+#ege19-21  zad 95 с одной кучей и условиями НЕ ПОВТОРЯТЬ ДЕЙСТВИЕ
+def F(x, p, win, h):
+    if x >= 43: return p%2 == win%2
+    if p >= win: return False
+    all_lst = [[F(x+1, p+1, win, 1), F(x+2, p+1, win, 2), F(x*2, p+1, win, 3)],
+    [F(x+2, p+1, win, 2), F(x*2, p+1, win, 3)],
+    [F(x+1, p+1, win, 1), F(x+2, p+1, win, 2)],
+    [F(x+1, p+1, win, 1), F(x*2, p+1, win, 3)]]
+    lst = all_lst[h]
+    if (p+1)%2 == win%2:
+        return any(lst)
+    else:
+        return all(lst)
+
+for s in range(1, 43):
+    if F(s, 0, 4, 0):
         print(s)
