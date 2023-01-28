@@ -1,4 +1,4 @@
-#ege19-21  zad 79
+#ege19-21  zad 95
 def F(x, p, win, h):
     if x >= 43: return p%2 == win%2
     if p >= win: return False
