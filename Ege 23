@@ -1,0 +1,6 @@
+# Start, finish, recursion
+def f(s, fin):
+    if s == fin: return 1
+    if s==25 or s > fin: return 0
+    return f(s+1, fin) + f(s*2, fin)
+print(f(2, 14) * f(14, 29))
