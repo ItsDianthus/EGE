@@ -103,3 +103,25 @@ for i in range(n):
     mtx[d2][d5] += 1
 f.close()
 print(cnt)
+
+# TASK 132
+f = open('27-132a.txt')
+n = int(f.readline())
+mtx = [0]*5
+for y in range(5):
+    mtx[y] = [0]*12
+cnt = 0
+for i in range(n):
+    x = int(f.readline())
+    r = x%5
+    d2 = 0
+    while x%2 == 0 and d2 < 11:
+        d2 += 1
+        x //= 2
+    if r == 0: ry = 0
+    else: ry = 5 - r
+    for i2 in range(11-d2, 12):
+        cnt += mtx[ry][i2]
+    mtx[r][d2] += 1
+f.close()
+print(cnt)
