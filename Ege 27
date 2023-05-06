@@ -35,3 +35,30 @@ for i in range(n):
     t[c] = min(t[c], s)
 f.close()
 print(maxs)
+
+
+#TASK 27-152
+f = open('27-152a.txt')
+n = int(f.readline())
+mtx = [0]*20
+for y in range(20):
+    mtx[y] = [0]*20
+cnt = 0
+for i in range(n):
+    x = int(f.readline())
+    d2 = 0
+    d5 = 0
+    while x%2 == 0:
+        d2 += 1
+        x //= 2
+    while x%5 == 0:
+        d5 += 1
+        x //= 5
+        
+    for i2 in range(20):
+        for i5 in range(20):
+            if i2 + d2 == 5 and d5 + i5 >= 5 or i5 + d5 == 5 and d2 + i2 >= 5:
+                cnt += mtx[i2][i5]
+    mtx[d2][d5] += 1
+f.close()
+print(cnt)
