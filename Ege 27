@@ -125,3 +125,22 @@ for i in range(n):
     mtx[r][d2] += 1
 f.close()
 print(cnt)
+
+
+# TASK 99 Not optimized
+f = open('27-99a.txt')
+n = int(f.readline())
+lst = []
+for i in range(n):
+    x = int(f.readline())
+    lst.append(x)
+f.close()
+mins = 10**10
+for j in range(0, n):
+    s = 0
+    for i in range(0, n):
+        s += lst[i]*abs(i-j)
+    if s < mins:
+        mins = s
+        p = j
+print(p)
