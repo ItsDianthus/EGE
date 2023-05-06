@@ -14,3 +14,24 @@ for i in range(n):
     lst[sm%k] += 1
 f.close()
 print(cnt)
+
+# TASK 93
+f = open('27-93a.txt')
+x = f.readline().split()
+n = int(x[0])
+k = int(x[1])
+t = [10**10]*n
+t[0] = 0
+maxs = 0
+c = 0
+s = 0
+for i in range(n):
+    x = int(f.readline())
+    s += x
+    if x < 0 and abs(x)%10 == 3:
+        c+= 1
+    if c >= k and s - t[c-k] > maxs:
+        maxs = s - t[c-k]
+    t[c] = min(t[c], s)
+f.close()
+print(maxs)
